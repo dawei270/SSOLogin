@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xxxxxx?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Hongkong
+    username: root
+    password: 801230
+    #使用阿里的druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 6000
+    jedis:
+      pool:
+        max-active: 1000
+        max-wait: -1
+        min-idle: 5
+        max-idle: 10
+    password: xxxxxx
+
+mybatis:
+  #实体类对应的包路径
+  type-aliases-package: com.sso.login.mapper
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    use-generated-keys: true
+    #驼峰命名
+    map-underscore-to-camel-case: true
+    #使用类的别名
+    use-column-label: true
+
+server:
+  port: 8082
+  tomcat:
+    uri-encoding: UTF-8
